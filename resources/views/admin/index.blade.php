@@ -7,8 +7,8 @@
 	<meta name="description-gambolthemes" content="">
 	<meta name="author-gambolthemes" content="">
 	<title>Gambo Supermarket Admin</title>
-	<link href="css/styles.css" rel="stylesheet">
-	<link href="css/admin-style.css" rel="stylesheet">
+	<link href="{{asset('admin-css/styles.css')}}" rel="stylesheet">
+	<link href="{{asset('admin-css/admin-style.css')}}" rel="stylesheet">
 	
 	<!-- Vendor Stylesheets -->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
