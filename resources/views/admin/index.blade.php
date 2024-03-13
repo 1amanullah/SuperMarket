@@ -1,8 +1,8 @@
 @extends('admin.layouts.index')
-@section('links')
+<!-- @section('links') -->
 @section('main')
 @section('navbar')
-
+@include('admin.css.css')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">

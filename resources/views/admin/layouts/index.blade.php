@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,16 +13,16 @@
 	<!-- Bootstrap Bundle with Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
  
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<link href="{{asset('admin-css/styles.css')}}" rel="stylesheet">
-	<link href="{{asset('admin-css/admin-style.css')}}" rel="stylesheet">
+	<link href="{{asset('admin-css/admin-style.css')}}" rel="stylesheet"> -->
 	
 	<!-- Vendor Stylesheets -->
 	<link href="{{asset('admin-css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('admin-css/fontawesome-free/all.min.css')}}" rel="stylesheet">
 </head>
     <body class="sb-nav-fixed">
-        @yield('navbar')
+       @yield('navbar') 
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-clr">
             <a class="navbar-brand logo-brand" href="index.html">Gambo Supermarket</a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="bi bi-list"></i></button>
@@ -171,7 +172,7 @@
                     </div>
                 </footer>
             </div>
-      @yield('main')
+            @yield('main')
 
         </div>
         <script src="{{asset('admin-js/jquery-3.4.1.min.js')}}"></script>
