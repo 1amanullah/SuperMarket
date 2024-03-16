@@ -12,17 +12,17 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<!-- Bootstrap Bundle with Popper -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
- 
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!--  
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<link href="{{asset('admin-css/styles.css')}}" rel="stylesheet">
-	<link href="{{asset('admin-css/admin-style.css')}}" rel="stylesheet"> -->
-	
+	<link href="{{asset('admin-css/admin-style.css')}}" rel="stylesheet">
+	 -->
 	<!-- Vendor Stylesheets -->
 	<link href="{{asset('admin-css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('admin-css/fontawesome-free/all.min.css')}}" rel="stylesheet">
 </head>
     <body class="sb-nav-fixed">
-       @yield('navbar') 
+       @yield('menubar')
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-clr">
             <a class="navbar-brand logo-brand" href="index.html">Gambo Supermarket</a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="bi bi-list"></i></button>
@@ -38,21 +38,23 @@
                 </li>				
             </ul>			
         </nav>
+        @yield('navbar')
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+                        
+          <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link active" href="index.html">
-								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+								<div class="sb-nav-link-icon"><i class="bi bi-speedometer2"></i></div>
                                 Dashboard
 							</a>
-                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-								<div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+								<div class="sb-nav-link-icon"><i class="bi bi-newspaper"></i></div>
                                 Posts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
 							</a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 									<a class="nav-link sub_nav_link" href="posts.html">All Posts</a>
 									<a class="nav-link sub_nav_link" href="add_post.html">Add New</a>
@@ -60,21 +62,21 @@
 									<a class="nav-link sub_nav_link" href="post_tags.html">Tags</a>
 								</nav>
                             </div>		
-							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLocations" aria-expanded="false" aria-controls="collapseLocations">
-								<div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+							<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLocations" aria-expanded="false" aria-controls="collapseLocations">
+								<div class="sb-nav-link-icon"><i class="bi bi-geo-alt-fill"></i></div>
                                 Locations
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
 							</a>
-                            <div class="collapse" id="collapseLocations" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLocations" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 									<a class="nav-link sub_nav_link" href="locations.html">All Locations</a>
 									<a class="nav-link sub_nav_link" href="add_location.html">Add Location</a>
 								</nav>
                             </div>		
-							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAreas" aria-expanded="false" aria-controls="collapseAreas">
-								<div class="sb-nav-link-icon"><i class="fas fa-map-marked-alt"></i></div>
+							<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAreas" aria-expanded="false" aria-controls="collapseAreas">
+								<div class="sb-nav-link-icon"><i class="bi bi-geo-fill"></i></div>
                                 Areas
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
 							</a>
                             <div class="collapse" id="collapseAreas" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -158,32 +160,10 @@
                         </div>
                     </div>
                 </nav>
-            </div>
-
-            <footer class="py-4 bg-footer mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted-1">© 2020 <b>Gambo Supermarket</b>. by <a href="https://themeforest.net/user/gambolthemes">Gambolthemes</a></div>
-                            <div class="footer-links">
-                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/privacy_policy.html">Privacy Policy</a>
-                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/term_and_conditions.html">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            @yield('main')
-
-        </div>
-        <script src="{{asset('admin-js/jquery-3.4.1.min.js')}}"></script>
-        <script src="{{asset('admin-js/vendor/bootstrap/bootstrap.bundle.min.js')}}"></script>
-		<script src="{{asset('admin-js/vendor/chart/highcharts.js')}}"></script>
-		<script src="{{asset('admin-js/vendor/chart/exporting.js')}}"></script>
-		<script src="{{asset('admin-js/vendor/chart/export-data.js')}}"></script>
-		<script src="{{asset('admin-js/vendor/chart/accessibility.js')}}"></script>
-        <script src="{{asset('admin-js/scripts.js')}}"></script>
-        <script src="{{asset('admin-js/chart.js')}}"></script>
-       
+            </div> 
+            
+        </div> 
+    
     </body>
 </html>
                

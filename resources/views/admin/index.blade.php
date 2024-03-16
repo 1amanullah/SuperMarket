@@ -1,8 +1,10 @@
 @extends('admin.layouts.index')
-<!-- @section('links') -->
-@section('main')
+@section('menubar')
 @section('navbar')
 @include('admin.css.css')
+    
+        
+        <div id="layoutSidenav">
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -168,4 +170,19 @@
                         </div>
                     </div>
                 </main>
-@endsection
+				<footer class="py-4 bg-footer" style="margin-bottom:0;">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted-1">© 2020 <b>Gambo Supermarket</b>. by <a href="https://themeforest.net/user/gambolthemes">Gambolthemes</a></div>
+                            <div class="footer-links">
+                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/privacy_policy.html">Privacy Policy</a>
+                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/term_and_conditions.html">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+			</div>
+        </div>
+    @include('admin.js.chart')
+    
+  @endsection             
