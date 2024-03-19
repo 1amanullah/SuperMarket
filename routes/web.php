@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/','App\Http\Controllers\Admin\HomeController@index')->name('index');
+Route::get('/admin','App\Http\Controllers\Admin\AdminController@login')->name('admin');
+Route::post('/admin/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
