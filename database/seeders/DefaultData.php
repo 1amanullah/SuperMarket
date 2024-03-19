@@ -13,7 +13,7 @@ class DefaultData extends Seeder
      */
     public function run(): void
     {
-        $admin =[
+        $admin = [
             'email' => 'gambomarket@gmail.com',
             'password' => bcrypt('admin#123'),
         ];
