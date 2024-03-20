@@ -22,7 +22,7 @@
     <body class="sb-nav-fixed">
        @yield('menubar')
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-clr">
-            <a class="navbar-brand logo-brand" href="index.html">Gambo Supermarket</a>
+            <a class="navbar-brand logo-brand" href="{{route('index')}}">Gambo Supermarket</a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="bi bi-list"></i></button>
             <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/index.html" class="frnt-link"><i class="bi bi-box-arrow-up-right"></i>Home</a>
             <ul class="navbar-nav ml-auto mr-md-0" style="margin-left:75%;">
@@ -31,19 +31,18 @@
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <a class="dropdown-item admin-dropdown-item" href="edit_profile.html">Edit Profile</a>
 						<a class="dropdown-item admin-dropdown-item" href="change_password.html">Change Password</a>
-                        <a class="dropdown-item admin-dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item admin-dropdown-item" href="{{route('admin')}}">Logout</a>
                     </div>
                 </li>				
             </ul>			
         </nav>
         @yield('navbar')
-        <div id="layoutSidenav">
-                        
+        <div id="layoutSidenav">                   
           <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link active" href="index.html">
+                            <a class="nav-link active" href="{{route('index')}}">
 								<div class="sb-nav-link-icon"><i class="bi bi-speedometer2"></i></div>
                                 Dashboard
 							</a>
@@ -158,8 +157,7 @@
                         </div>
                     </div>
                 </nav>
-            </div> 
-            
+            </div>      
         </div> 
     
     </body>
