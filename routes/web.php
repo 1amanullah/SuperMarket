@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+
 Route::get('/','App\Http\Controllers\Admin\HomeController@index')->name('index');
-Route::get('/admin','App\Http\Controllers\Admin\AdminController@login')->name('admin');
-Route::post('/admin/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
+Route::middleware('admin.auth')->prefix('admin')->group(function () {
+   
+    Route::get('/','App\Http\Controllers\Admin\AdminController@login')->name('admin');
+    Route::post('/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
+    Route::get('/logout','App\Http\Controllers\Admin\AdminController@logout')->name('logout');
+
+});

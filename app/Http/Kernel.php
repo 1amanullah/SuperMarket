@@ -28,6 +28,12 @@ class Kernel extends HttpKernel
      *
      * @var array<string, array<int, class-string|string>>
      */
+    
+    protected $routeMiddleware = [
+
+        'admin.auth' => \App\Http\Middleware\AdminAuthMiddleware::class,
+    ];
+
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,

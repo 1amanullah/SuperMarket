@@ -32,4 +32,9 @@ class AdminController extends Controller
             return redirect()->back()->with('error','Email or Password is incorrect');
         }
     }
+
+    public function logout()
+    {
+        return redirect('/admin');
+    }
 }

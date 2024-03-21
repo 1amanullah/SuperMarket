@@ -31,7 +31,7 @@
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <a class="dropdown-item admin-dropdown-item" href="edit_profile.html">Edit Profile</a>
 						<a class="dropdown-item admin-dropdown-item" href="change_password.html">Change Password</a>
-                        <a class="dropdown-item admin-dropdown-item" href="{{route('admin')}}">Logout</a>
+                        <a class="dropdown-item admin-dropdown-item" href="{{route('logout')}}">Logout</a>
                     </div>
                 </li>				
             </ul>			
