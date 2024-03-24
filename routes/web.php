@@ -18,11 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/','App\Http\Controllers\Admin\HomeController@index')->name('index');
-Route::middleware('admin.auth')->prefix('admin')->group(function () {
-   
-    Route::get('/','App\Http\Controllers\Admin\AdminController@login')->name('admin');
-    Route::post('/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
-    Route::get('/logout','App\Http\Controllers\Admin\AdminController@logout')->name('logout');
+Route::get('/','App\Http\Controllers\Admin\HomeController@index')->name('index');   
+Route::get('/admin','App\Http\Controllers\Admin\AdminController@login')->name('admin');
+Route::post('/admin/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
+Route::get('/admin/logout','App\Http\Controllers\Admin\AdminController@logout')->name('logout');
+Route::get('/admin/category_add','App\Http\Controllers\Admin\CategoriesController@category')->name('add_category');
 
-});
