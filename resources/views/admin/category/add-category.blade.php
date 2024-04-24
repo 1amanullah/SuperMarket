@@ -10,8 +10,8 @@
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
                         <ol class="breadcrumb mb-30">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="category.html">Categories</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('index')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category')}}">Categories</a></li>
                             <li class="breadcrumb-item active">Add Category</li>
                         </ol>
                         <div class="row">
@@ -21,10 +21,12 @@
 										<h4>Add New Category</h4>
 									</div>
 									<div class="card-body-table">
-										<div class="news-content-right pd-20">
+										<form action="{{url('/admin/category')}}" method="POST" enctype="multipart/form-data">
+										 @csrf 
+								    	  <div class="news-content-right pd-20">
 											<div class="form-group">
 												<label class="form-label">Name*</label>
-												<input type="text" class="form-control" placeholder="Category Name">
+												<input type="text" name="name" class="form-control" placeholder="Category Name">
 											</div>
 											<div class="form-group">
 												<label class="form-label">Status*</label>
@@ -37,7 +39,7 @@
 												<label class="form-label">Category Image*</label>
 												<div class="input-group">
 													<div class="custom-file">
-														<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+														<input type="file" name="image" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
 														<label class="custom-file-label" for="inputGroupFile04">Choose Image</label>
 													</div>
 												</div>
@@ -49,12 +51,13 @@
 												<label class="form-label">Description*</label>
 												<div class="card card-editor">
 													<div class="content-editor">
-														<textarea class="text-control" placeholder="Enter Description"></textarea>
+														<textarea class="text-control" name="description" placeholder="Enter Description"></textarea>
 													</div>
 												</div>
 											</div>
 											<button class="save-btn hover-btn" type="submit">Add New Category</button>
-										</div> 
+										 </div> 
+									   </form>
 									</div>
 								</div>
 							</div>
