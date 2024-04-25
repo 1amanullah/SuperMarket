@@ -4,9 +4,11 @@
  @include('admin.css.css')
  @include('admin.js.admin-login')
  @include('admin.bootstrap.bootstrap')
-        <div id="layoutSidenav">   
+       <div id="layoutSidenav">   
             <div id="layoutSidenav_content">
-                <main>
+			@include('admin.layouts.errormessage')
+
+     			<main>
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
                         <ol class="breadcrumb mb-30">
@@ -31,8 +33,9 @@
 											 <div class="form-group">
 												<label class="form-label">Status*</label>
 												<select id="status" name="status" class="form-control">
-													<option selected>Active</option>
-													<option value="1">Inactive</option>
+													<option selected hidden>Status</option>
+												    <option>Active</option>
+													<option>Inactive</option>
 												</select>
 											 </div>
 											 <div class="form-group">
@@ -44,7 +47,7 @@
 													</div>
 												</div>
 												<div class="add-cate-img">
-													<img src="images/category/icon-1.svg" alt="">
+													<img src="" id="image-preview" alt="" style="display: none;">
 												</div>
 										     </div>
 											 <div class="form-group">
@@ -77,4 +80,21 @@
                 </footer>
             </div>
         </div>
-		
+	  
+@endsection
+@push('script')
+<script>
+    document.getElementById('inputGroupFile04').addEventListener('change', function(event) {
+        var reader = new FileReader();
+
+        reader.onload = function() {
+            var img = document.getElementById('image-preview');
+            img.src = reader.result;
+            img.style.display = 'block';
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
+    });
+</script>
+
+@endpush

@@ -41,7 +41,7 @@
 									<div class="input-group">
 										<select id="categeory" name="categeory" class="form-control">
 											<option selected>Active</option>
-											<option value="1">Inactive</option>
+											<option value="0">Inactive</option>
 										</select>
 										<div class="input-group-append">
 											<button class="status-btn hover-btn" type="submit">Search Category</button>
