@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryFormRequest;
+use App\Models\Category;
+// use App\Http\Requests\CategoryFormRequest;
 
 class CategoriesController extends Controller
 {
@@ -18,31 +19,28 @@ class CategoriesController extends Controller
         return view('admin.category.add-category');
     }
 
-    public function store(CategoryFormRequest $request)
+    public function store(Request $request)
     {
-           $validatedData = $request->validated();
-           $category = new Category;
-           $category->name = $validatedData['name'];
-           $category->status = $validatedData['status'];
-           
-           if($request->hasFile('image'))
-           {
-              $file = $request->file('image');
-              $ext = $file->getClientOriginalExtension();
-              $filename = time().'.'.$ext;
-              
-              $file->move('uploads/categories/',$filename);
-              $category->image = $filename;
-             
-           }
+       $request->validate([
+            'name'=>'required',
+            'status'=>'required',
+            'image'=>'mimes:png,jpg',
+            'description' => 'required',
+        ]);
+  
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images/categories'),$imageName);
+       
 
+        $category = new Category;
+        $category->name = $request->name;
+        $category->status = $request->status;
+        $category->image = $imageName;
+        $category->description = $request->description;
 
-          $category->description = $validatedData['description'];
-
-          $category->status = $request->status == true ? 'active':'inactive';
-
-          $category->save();
-
-          return redirect('/admin/category')->with('message','Category Added Successfully');
+        
+        // $category->save();
+        dd($request->category);
+        // return redirect('/admin/category')->with('message','Category Added Successfully');
     }
 }

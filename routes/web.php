@@ -24,5 +24,5 @@ Route::post('/admin/login','App\Http\Controllers\Admin\AdminController@checklogi
 Route::get('/admin/logout','App\Http\Controllers\Admin\AdminController@logout')->name('logout');
 // categories
 Route::get('/admin/category','App\Http\Controllers\Admin\CategoriesController@index')->name('category');
-Route::get('/admin/category_add','App\Http\Controllers\Admin\CategoriesController@create')->name('add_category');
+Route::get('/admin/category/create','App\Http\Controllers\Admin\CategoriesController@create')->name('category_add');
 Route::post('/admin/category','App\Http\Controllers\Admin\CategoriesController@store');

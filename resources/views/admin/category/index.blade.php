@@ -16,7 +16,7 @@
                         </ol>
                         <div class="row justify-content-between">
 							<div class="col-lg-12">
-								<a href="{{route('add_category')}}" class="add-btn hover-btn">Add New</a>
+								<a href="{{route('category_add')}}" class="add-btn hover-btn">Add New</a>
 							</div>
 							<div class="col-lg-3 col-md-4">
 								<div class="bulk-section mt-30">

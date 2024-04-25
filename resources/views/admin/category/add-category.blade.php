@@ -21,21 +21,21 @@
 										<h4>Add New Category</h4>
 									</div>
 									<div class="card-body-table">
-										<form action="{{url('/admin/category')}}" method="POST" enctype="multipart/form-data">
-										 @csrf 
-								    	  <div class="news-content-right pd-20">
-											<div class="form-group">
+										<div class="news-content-right pd-20">
+										   <form action="{{url('/admin/category')}}" method="POST" enctype="multipart/form-data">
+										     @csrf 
+											 <div class="form-group">
 												<label class="form-label">Name*</label>
 												<input type="text" name="name" class="form-control" placeholder="Category Name">
-											</div>
-											<div class="form-group">
+											  </div>
+											 <div class="form-group">
 												<label class="form-label">Status*</label>
 												<select id="status" name="status" class="form-control">
 													<option selected>Active</option>
 													<option value="1">Inactive</option>
 												</select>
-											</div>
-											<div class="form-group">
+											 </div>
+											 <div class="form-group">
 												<label class="form-label">Category Image*</label>
 												<div class="input-group">
 													<div class="custom-file">
@@ -46,18 +46,18 @@
 												<div class="add-cate-img">
 													<img src="images/category/icon-1.svg" alt="">
 												</div>
-											</div>
-											<div class="form-group">
+										     </div>
+											 <div class="form-group">
 												<label class="form-label">Description*</label>
 												<div class="card card-editor">
 													<div class="content-editor">
 														<textarea class="text-control" name="description" placeholder="Enter Description"></textarea>
 													</div>
 												</div>
-											</div>
-											<button class="save-btn hover-btn" type="submit">Add New Category</button>
-										 </div> 
-									   </form>
+											 </div>
+											 <button class="save-btn hover-btn" type="submit">Add New Category</button>
+										    </form>
+										</div> 
 									</div>
 								</div>
 							</div>

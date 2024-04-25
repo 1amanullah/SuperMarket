@@ -11,7 +11,7 @@ class CategoryFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -21,23 +21,6 @@ class CategoryFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => [
-                'required',
-                'string'
-            ],
-
-            'status' => [
-               'nullable',
-            ],
-
-            'image' => [
-                'mimes:png,jpg',
-            ],
-
-            'description' => [
-               'required',
-            ],
-        ];
+        
     }
 }
