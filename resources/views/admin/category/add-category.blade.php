@@ -2,12 +2,10 @@
  @section('menubar')
  @section('navbar')
  @include('admin.css.css')
- @include('admin.js.admin-login')
- @include('admin.bootstrap.bootstrap')
+
        <div id="layoutSidenav">   
             <div id="layoutSidenav_content">
 			@include('admin.layouts.errormessage')
-
      			<main>
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>

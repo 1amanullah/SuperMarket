@@ -1,6 +1,7 @@
 @extends('admin.layouts.index')
 @section('menubar')
 @section('navbar')
+
 @include('admin.css.css')
     
         

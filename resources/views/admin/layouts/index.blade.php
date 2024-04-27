@@ -24,7 +24,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-clr">
             <a class="navbar-brand logo-brand" href="{{route('index')}}">Gambo Supermarket</a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="bi bi-list"></i></button>
-            <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/index.html" class="frnt-link"><i class="bi bi-box-arrow-up-right"></i>Home</a>
+            <a href="{{route('index')}}" class="frnt-link"><i class="bi bi-box-arrow-up-right"></i>Home</a>
             <ul class="navbar-nav ml-auto mr-md-0" style="margin-left:75%;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-bs-toggle="dropdown"  aria-expanded="false"><i class="bi bi-person-fill"></i></a>

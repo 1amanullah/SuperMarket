@@ -2,8 +2,7 @@
 @section('menubar')
 @section('navbar')
 @include('admin.css.css')
-@include('admin.js.admin-login')
-@include('admin.bootstrap.bootstrap')
+
 
       <div id="layoutSidenav">
            <div id="layoutSidenav_content">
