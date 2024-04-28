@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
+use App\Actions\CreateCategoryAction;
 
 class CategoriesController extends Controller
 {
+    protected $createCategoryAction;
+
     public function index()
     {
         return view('admin.category.index');
@@ -19,25 +22,16 @@ class CategoriesController extends Controller
         return view('admin.category.add-category');
     }
 
+    public function __construct(CreateCategoryAction $createCategoryAction)
+    {
+           $this->createCategoryAction = $createCategoryAction;      
+    }
+
     public function store(CategoryFormRequest $request)
     {  
-          $validatedData = $request->validated();     
-          $category = new Category;
-          $category->name = $validatedData['name'];
-          $category->status = $validatedData['status'];
-          
-          if($request->hasFile('image'))
-          {
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images/categories'),$imageName);
-
-          }
-
-          $category->image = $imageName;
-          $category->description = $validatedData['description'];
-    
-        // $category->save();
-        dd($category);
+        $this->createCategoryAction->execute($request);
+        
+        
         return redirect('/admin/category')->with('success','Category Added Successfully');
     }
 }

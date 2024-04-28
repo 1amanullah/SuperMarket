@@ -32,7 +32,7 @@ class CategoryFormRequest extends FormRequest
             ],
 
             'image' => [
-                'mimes:png,jpg',
+                'mimes:png,jpg,svg',
             ],
 
             'description' => [
