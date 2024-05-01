@@ -2,10 +2,11 @@
  @section('menubar')
  @section('navbar')
  @include('admin.css.css')
+ @include('admin.js.admin-login')
 
-       <div id="layoutSidenav">   
+        <div id="layoutSidenav">   
             <div id="layoutSidenav_content">
-			@include('admin.layouts.errormessage')
+			 @include('admin.layouts.errormessage')
      			<main>
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
