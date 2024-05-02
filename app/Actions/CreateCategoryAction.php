@@ -26,9 +26,11 @@ class CreateCategoryAction
           $category->image = $imageName;
           $category->description = $validatedData['description'];
     
-          // $category->save();
-          dd($category);
+          $category->save();
+          // dd($category);
           return $category;
         
     }
+    
 }
+
