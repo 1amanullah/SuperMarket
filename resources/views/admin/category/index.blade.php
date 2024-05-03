@@ -11,7 +11,7 @@
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
                         <ol class="breadcrumb mb-30">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('index')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Categories</li>
                         </ol>
                         <div class="row justify-content-between">
@@ -71,7 +71,7 @@
 												<tbody>
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" class="check-item" name="id" value="11"></td>
+														<td><input type="checkbox" class="check-item" name="id" value="{{$category->id}}"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">
