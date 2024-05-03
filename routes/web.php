@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/','App\Http\Controllers\Admin\HomeController@index')->name('index');   
-Route::get('/admin','App\Http\Controllers\Admin\AdminController@login')->name('admin');
+Route::get('/admin','App\Http\Controllers\Admin\AdminController@login')->name('login');
 Route::post('/admin/login','App\Http\Controllers\Admin\AdminController@checklogin')->name('admin.login');
 Route::get('/admin/logout','App\Http\Controllers\Admin\AdminController@logout')->name('logout');
 // categories
-Route::get('/admin/category','App\Http\Controllers\Admin\CategoriesController@index')->name('category');
-Route::get('/admin/category/create','App\Http\Controllers\Admin\CategoriesController@create')->name('category_add');
-Route::post('/admin/category','App\Http\Controllers\Admin\CategoriesController@store');
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard','App\Http\Controllers\Admin\HomeController@index')->name('index');   
+    Route::get('/admin/category','App\Http\Controllers\Admin\CategoriesController@index')->name('category');
+    Route::get('/admin/category/create','App\Http\Controllers\Admin\CategoriesController@create')->name('category_add');
+    Route::post('/admin/category','App\Http\Controllers\Admin\CategoriesController@store');
+});
+

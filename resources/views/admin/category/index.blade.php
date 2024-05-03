@@ -71,7 +71,7 @@
 												<tbody>
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" class="check-item" name="ids[]" value="11"></td>
+														<td><input type="checkbox" class="check-item" name="id" value="11"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">

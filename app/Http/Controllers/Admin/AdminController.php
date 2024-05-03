@@ -16,17 +16,17 @@ class AdminController extends Controller
     public function checklogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
         
-        // dd($data);
-        if(Auth::guard('admin')->attempt(['email' => $data['email'],'password' => $data['password']]))
+        $credentials = $request->only('email','password');
+        if(Auth::guard('admin')->attempt($credentials))
         {
-            return redirect('/')->with('success','Login successfully!!!');
+            return redirect()->intended('/admin/dashboard')->with('success','Login successfully!!!');
         }
+
         else
         {
             return redirect()->back()->with('error','Email or Password is incorrect');
