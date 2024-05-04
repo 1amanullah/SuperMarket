@@ -2,7 +2,7 @@
 @section('menubar')
 @section('navbar')
 @include('admin.css.css')
-@include('admin.js.admin-login')
+@include('admin.js.js')
 
       <div id="layoutSidenav">
            <div id="layoutSidenav_content">
@@ -71,7 +71,7 @@
 												<tbody>
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" class="check-item" name="id" value="{{$category->id}}"></td>
+														<td><input type="checkbox" class="check-item" name="{{$category->id}}" value="{{$category->id}}"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">
