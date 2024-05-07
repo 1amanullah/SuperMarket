@@ -21,7 +21,7 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        return view('admin.category.add-category');
+        return view('admin.category.create-category');
     }
 
     public function __construct(CreateCategoryAction $createCategoryAction)
@@ -35,5 +35,17 @@ class CategoriesController extends Controller
         
         
         return redirect('/admin/category')->with('success','Category Added Successfully');
+    }
+
+    public function edit($id)
+    {
+        $categories = Category::findOrFail($id);
+        return view('admin.category.edit-category');
+    }
+
+    public function update(CategoryFormRequest $request,$id)
+    {
+        $categories = findOrFail($id);
+        
     }
 }

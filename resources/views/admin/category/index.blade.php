@@ -71,7 +71,7 @@
 												<tbody>
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" class="check-item" name="{{$category->id}}" value="{{$category->id}}"></td>
+														<td><input type="checkbox" class="check-item"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">
@@ -82,7 +82,7 @@
 														<td>{{$category->description}}</td>
 														<td><span class="badge-item badge-status">{{$category->status}}</span></td>
 														<td class="action-btns">
-															<a href="#" class="edit-btn"><i class="bi bi-pencil-square"></i></i> Edit</a>
+															<a href="{{route('category_edit',$category->id)}}" class="edit-btn"><i class="bi bi-pencil-square"></i></i> Edit</a>
 														</td>
 													</tr>
 													

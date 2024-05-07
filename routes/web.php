@@ -27,5 +27,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/category','App\Http\Controllers\Admin\CategoriesController@index')->name('category');
     Route::get('/admin/category/create','App\Http\Controllers\Admin\CategoriesController@create')->name('category_add');
     Route::post('/admin/category','App\Http\Controllers\Admin\CategoriesController@store');
+    Route::get('/admin/category/{id}/edit','App\Http\Controllers\Admin\CategoriesController@edit')->name('category_edit');
+    Route::put('admin/category/{id}/update','App\Http\Controllers\Admin\CategoriesController@update');
 });
 

@@ -43,6 +43,6 @@
                 </main>
             </div>
         </div>
-		@include('admin.js.admin-login')		
+		@include('admin.js.js')		
 		
 @endsection

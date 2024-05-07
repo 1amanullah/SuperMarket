@@ -1,4 +1,4 @@
- @extends('admin.layouts.index')
+@extends('admin.layouts.index')
  @section('menubar')
  @section('navbar')
  @include('admin.css.css')
@@ -13,21 +13,22 @@
                         <ol class="breadcrumb mb-30">
                             <li class="breadcrumb-item"><a href="{{route('index')}}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{route('category')}}">Categories</a></li>
-                            <li class="breadcrumb-item active">Add Category</li>
+                            <li class="breadcrumb-item active">Update Category</li>
                         </ol>
                         <div class="row">
 							<div class="col-lg-6 col-md-6">
 								<div class="card card-static-2 mb-30">
 									<div class="card-title-2">
-										<h4>Add New Category</h4>
+										<h4>Update Category</h4>
 									</div>
 									<div class="card-body-table">
 										<div class="news-content-right pd-20">
 										   <form action="{{url('/admin/category')}}" method="POST" enctype="multipart/form-data">
 										     @csrf 
+											 @method('PUT')
 											 <div class="form-group">
 												<label class="form-label">Name*</label>
-												<input type="text" name="name" class="form-control" placeholder="Category Name">
+												<input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Category Name">
 											  </div>
 											 <div class="form-group">
 												<label class="form-label">Status*</label>
@@ -57,7 +58,7 @@
 													</div>
 												</div>
 											 </div>
-											 <button class="save-btn hover-btn" type="submit">Add New Category</button>
+											 <button class="save-btn hover-btn" type="submit">Update Category</button>
 										    </form>
 										</div> 
 									</div>
