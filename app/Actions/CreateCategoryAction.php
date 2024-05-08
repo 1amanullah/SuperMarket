@@ -34,5 +34,43 @@ class CreateCategoryAction
     
 }
 
+class UpdateCategoryAction
+{
+
+  public function execute(CategoryFormRequest $request,$id)
+  {
+
+    $validatedData = $request->validated();
+    $category = Category::findOrFail($id);
+    
+    $category->name = $validatedData['name'];
+    $category->status = $validatedData['status'];
+    if($request->hasFile('image'))
+    {
+       //delete old image 
+       if($imageName)
+       {
+         $imagePath = public_path('images/categories' . $imageName);
+         if(file_exists($imagePath))
+         {
+            unlink($imagePath);
+         }
+       }
+
+      $imageName = time().'.'.$request->image->extention();
+      $request->image->move(public_path('images/categories'),$imageName);
+      $category->image = $imageName;
+    }
+
+    $category->descriprion = $validatedData['description'];
+    // dd($category);
+
+    // $category->save();
+    return $category;
+
+  }
+
+}
+
 
 

@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
 use App\Actions\CreateCategoryAction;
+use App\Actions\UpdateCategoryAction;
 
 class CategoriesController extends Controller
 {
     protected $createCategoryAction;
-
+    protected $updateCategoryAction;
     public function index()
     {
         $categories = Category::all();
@@ -24,9 +25,11 @@ class CategoriesController extends Controller
         return view('admin.category.create-category');
     }
 
-    public function __construct(CreateCategoryAction $createCategoryAction)
+    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction)
     {
-           $this->createCategoryAction = $createCategoryAction;      
+        $this->createCategoryAction = $createCategoryAction; 
+        $this->updateCategoryAction = $updateCategoryAction;     
+
     }
 
     public function store(CategoryFormRequest $request)
@@ -40,12 +43,13 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $categories = Category::findOrFail($id);
-        return view('admin.category.edit-category');
+        return view('admin.category.edit-category',compact('categories'));
     }
 
     public function update(CategoryFormRequest $request,$id)
     {
-        $categories = findOrFail($id);
         
+        $this->updateCategoryAction->execute($request,$id);
+        return redirect('/admin/category')->with('success','Category Updated Successfully');
     }
 }

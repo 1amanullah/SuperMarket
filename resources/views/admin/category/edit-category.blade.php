@@ -23,38 +23,38 @@
 									</div>
 									<div class="card-body-table">
 										<div class="news-content-right pd-20">
-										   <form action="{{url('/admin/category')}}" method="POST" enctype="multipart/form-data">
+										   <form action="{{route('category_update',$categories->id)}}" method="POST" enctype="multipart/form-data">
 										     @csrf 
 											 @method('PUT')
 											 <div class="form-group">
 												<label class="form-label">Name*</label>
-												<input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Category Name">
+												<input type="text" name="name" value="{{$categories->name}}" class="form-control" placeholder="Category Name">
 											  </div>
 											 <div class="form-group">
 												<label class="form-label">Status*</label>
-												<select id="status" name="status" class="form-control">
-													<option selected hidden>Status</option>
-												    <option>Active</option>
-													<option>Inactive</option>
+												<select id="status" name="status"  class="form-control">
+													<!-- <option selected hidden>Status</option> -->
+												    <option value="Active" {{ old('status', $categories->status) == 'Active' ? 'selected hidden' : '' }}>Active</option>
+													<option value="Inactive" {{old('status', $categories->status) == 'Inactive' ? 'selected hidden' : ''}} >Inactive</option>
 												</select>
 											 </div>
 											 <div class="form-group">
 												<label class="form-label">Category Image*</label>
 												<div class="input-group">
 													<div class="custom-file">
-														<input type="file" name="image" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+														<input type="file" name="image" value="{{old('image')}}" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
 														<label class="custom-file-label" for="inputGroupFile04">Choose Image</label>
 													</div>
 												</div>
 												<div class="add-cate-img">
-													<img src="" id="image-preview" alt="" style="display: none;">
+													<img src="" id="image-preview"  alt="" style="display: none;">
 												</div>
 										     </div>
 											 <div class="form-group">
 												<label class="form-label">Description*</label>
 												<div class="card card-editor">
 													<div class="content-editor">
-														<textarea class="text-control" name="description" placeholder="Enter Description"></textarea>
+														<textarea class="text-control" name="description"  placeholder="Enter Description">{{$categories->description}}</textarea>
 													</div>
 												</div>
 											 </div>
@@ -98,3 +98,4 @@
 </script>
 
 @endpush
+
