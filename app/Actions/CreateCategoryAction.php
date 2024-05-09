@@ -63,7 +63,7 @@ class UpdateCategoryAction
     }
 
     $category->descriprion = $validatedData['description'];
-    // dd($category);
+    dd($category);
 
     // $category->save();
     return $category;

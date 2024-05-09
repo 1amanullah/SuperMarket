@@ -23,7 +23,7 @@
 									</div>
 									<div class="card-body-table">
 										<div class="news-content-right pd-20">
-										   <form action="{{route('/admin/category/{id}/edit')}}" method="POST" enctype="multipart/form-data">
+										   <form action="{{route('category_sore')}}" method="POST" enctype="multipart/form-data">
 										     @csrf 
 											 <div class="form-group">
 												<label class="form-label">Name*</label>

@@ -47,7 +47,7 @@
 													</div>
 												</div>
 												<div class="add-cate-img">
-													<img src="" id="image-preview"  alt="" style="display: none;">
+													<img src="{{asset('images/categories/' . $categories->image)}}"  id="image-preview"  alt="" >
 												</div>
 										     </div>
 											 <div class="form-group">
@@ -82,20 +82,30 @@
         </div>
 	  
 @endsection
-@push('script')
+{{-- @push('script')
 <script>
     document.getElementById('inputGroupFile04').addEventListener('change', function(event) {
-        var reader = new FileReader();
+        
+		const file = this.files[0];
+		const ImagePreview = document.getElementById('image-preview');
+        
+		if(file)
+		{
+            const reader = new FileReader();
+			reader.onload = function(event){
+				ImagePreview.src = event.target.result;
+				ImagePreview.style.display = 'block'; 
+			};
+			reader.readAsDataURL(file);
+		}
 
-        reader.onload = function() {
-            var img = document.getElementById('image-preview');
-            img.src = reader.result;
-            img.style.display = 'block';
-        };
+		else
+		{
+			ImagePreview.src = '';
+			ImagePreview.style.display = 'none';
+		}
 
-        reader.readAsDataURL(event.target.files[0]);
     });
-</script>
+</script> --}}
 
-@endpush
 
