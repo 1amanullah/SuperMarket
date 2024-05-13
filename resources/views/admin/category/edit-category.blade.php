@@ -82,30 +82,21 @@
         </div>
 	  
 @endsection
-{{-- @push('script')
+@push('script')
 <script>
     document.getElementById('inputGroupFile04').addEventListener('change', function(event) {
-        
-		const file = this.files[0];
-		const ImagePreview = document.getElementById('image-preview');
-        
-		if(file)
-		{
-            const reader = new FileReader();
-			reader.onload = function(event){
-				ImagePreview.src = event.target.result;
-				ImagePreview.style.display = 'block'; 
-			};
-			reader.readAsDataURL(file);
-		}
+        var reader = new FileReader();
 
-		else
-		{
-			ImagePreview.src = '';
-			ImagePreview.style.display = 'none';
-		}
+        reader.onload = function() {
+            var img = document.getElementById('image-preview');
+            img.src = reader.result;
+            img.style.display = 'block';
+        };
 
+        reader.readAsDataURL(event.target.files[0]);
     });
-</script> --}}
+</script>
+
+@endpush
 
 

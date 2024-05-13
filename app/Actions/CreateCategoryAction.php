@@ -45,6 +45,7 @@ class UpdateCategoryAction
     
     $category->name = $validatedData['name'];
     $category->status = $validatedData['status'];
+    $imageName = $category->image;
     if($request->hasFile('image'))
     {
        //delete old image 
@@ -57,15 +58,15 @@ class UpdateCategoryAction
          }
        }
 
-      $imageName = time().'.'.$request->image->extention();
+      $imageName = time().'.'.$request->image->extension();
       $request->image->move(public_path('images/categories'),$imageName);
       $category->image = $imageName;
     }
 
-    $category->descriprion = $validatedData['description'];
-    dd($category);
+    $category->description = $validatedData['description'];
+    // dd($category);
 
-    // $category->save();
+    $category->save();
     return $category;
 
   }
