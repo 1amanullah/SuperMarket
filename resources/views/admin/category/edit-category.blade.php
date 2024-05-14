@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div> 
         </div>
 	  
 @endsection

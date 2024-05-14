@@ -44,7 +44,10 @@
 											<option value="0">Inactive</option>
 										</select>
 										<div class="input-group-append">
+										    
 											<button class="status-btn hover-btn" type="submit">Search Category</button>
+												
+
 										</div>
 									</div>
 								</div>
