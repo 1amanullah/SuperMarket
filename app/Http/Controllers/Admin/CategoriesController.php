@@ -13,11 +13,14 @@ class CategoriesController extends Controller
 {
     protected $createCategoryAction;
     protected $updateCategoryAction;
-    public function index()
+    public function index(Request $request)
     {
+        $name = $request->search;
         $categories = Category::all();
-        // dd($categories);
-        return view('admin.category.index',compact('categories'));
+        $search = Category::where('name','like', '%'.$name.'%')->get();
+        // dd($search);
+        
+        return view('admin.category.index',compact('categories','search'));
     }
 
     public function create()

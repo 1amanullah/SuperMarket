@@ -36,16 +36,19 @@
 							<div class="col-lg-5 col-md-6">
 								<div class="bulk-section mt-30">
 									<div class="search-by-name-input">
-										<input type="text" class="form-control" placeholder="Search">
+									   
+										<input type="text" name="search" class="form-control" placeholder="Search">
+									   
+									   
 									</div>
 									<div class="input-group">
 										<select id="categeory" name="categeory" class="form-control">
-											<option selected>Active</option>
-											<option value="0">Inactive</option>
+											<option>Active</option>
+											<option>Inactive</option>
 										</select>
 										<div class="input-group-append">
 										    
-											<button class="status-btn hover-btn" type="submit">Search Category</button>
+											<button class="status-btn hover-btn" name="search" type="submit">Search Category</button>
 												
 
 										</div>
