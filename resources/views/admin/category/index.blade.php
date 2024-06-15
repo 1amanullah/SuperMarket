@@ -105,3 +105,16 @@
           </div>
        </div>
 @endsection
+
+
+@push('script')
+<script>
+
+
+
+ $(".check-all").click(function () {
+    $(".check-item").prop('checked', $(this).prop('checked'));
+});
+
+</script>	
+@endpush
