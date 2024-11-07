@@ -8,32 +8,43 @@ use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
 use App\Actions\CreateCategoryAction;
 use App\Actions\UpdateCategoryAction;
+use App\Actions\FilterCategoryAction;
 
 class CategoriesController extends Controller
 {
     protected $createCategoryAction;
     protected $updateCategoryAction;
+    protected $filterCategoryAction;
+
+    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction, FilterCategoryAction $filterCategoryAction)
+    {
+        $this->createCategoryAction = $createCategoryAction; 
+        $this->updateCategoryAction = $updateCategoryAction;     
+        $this->filterCategoryAction = $filterCategoryAction;
+
+    }
+
     public function index(Request $request)
     {
-        $name = $request->search;
-        $categories = Category::all();
-        $search = Category::where('name','like', '%'.$name.'%')->get();
-        // dd($search);
         
-        return view('admin.category.index',compact('categories','search'));
+        $categories = Category::all();
+
+        return view('admin.category.index',compact('categories'));
+    }
+
+    public function bulkAction(CategoryFormRequest $request, FilterCategoryAction $filterCategoryAction)
+    {
+
+        $categories =   $this->filterCategoryAction->execute($request);
+        
+        return view('categories.index',compact('categories'));
+
     }
 
     public function create()
     {
         return view('admin.category.create-category');
-    }
-
-    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction)
-    {
-        $this->createCategoryAction = $createCategoryAction; 
-        $this->updateCategoryAction = $updateCategoryAction;     
-
-    }
+    }   
 
     public function store(CategoryFormRequest $request)
     {  
@@ -55,4 +66,5 @@ class CategoriesController extends Controller
         $this->updateCategoryAction->execute($request,$id);
         return redirect('/admin/category')->with('success','Category Updated Successfully');
     }
+
 }

@@ -69,9 +69,40 @@ class UpdateCategoryAction
     $category->save();
     return $category;
 
-  }
+  }  
 
 }
 
+
+class BluckAction
+{
+
+  public function execute(CategoryFormRequest $request)
+  {
+
+    $action = $request->input('action');
+    $selectedIds = $request->input('selected_ids');
+
+    if(!$selectedIds)
+    {
+      return redirect()->with('error','No categories selected');
+    }
+
+    switch($action)
+    {
+      case '1':
+        Category::whereIn('id',$selectedIds)->update(['status' => 'Active']);
+        return redirect()->with('success','Selected categories activated.');
+
+      case '2':
+        Category::whereIn('id',$selectedIds)->update(['status' => 'Inactive']);
+        return redirect()->with('success','Selected categories deactivated.');
+        
+      default:
+       return redirect()->with('error','Invalid action selelcted');
+    }
+
+  }
+}
 
 

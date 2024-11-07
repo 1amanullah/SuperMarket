@@ -28,7 +28,8 @@ class CategoryFormRequest extends FormRequest
             ],
 
             'status' => [
-               'nullable',
+               'required',
+               'in:1,2,3'
             ],
 
             'image' => [
@@ -36,8 +37,9 @@ class CategoryFormRequest extends FormRequest
             ],
 
             'description' => [
-               'required',
+               'nullable',
             ],
         ];
     }
+
 }

@@ -10,6 +10,9 @@
                 <main>
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
+					 <form action="{{ route('bulkAction') }}">
+                      
+
                         <ol class="breadcrumb mb-30">
                             <li class="breadcrumb-item"><a href="{{route('index')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Categories</li>
@@ -19,10 +22,11 @@
 								<a href="{{route('category_add')}}" class="add-btn hover-btn">Add New</a>
 							</div>
 							<div class="col-lg-3 col-md-4">
+						     
 								<div class="bulk-section mt-30">
 									<div class="input-group">
 										<select id="action" name="action" class="form-control">
-											<option selected>Bulk Actions</option>
+											<option selected hidden>Bulk Actions</option>
 											<option value="1">Active</option>
 											<option value="2">Inactive</option>
 											<option value="3">Delete</option>
@@ -33,11 +37,12 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="col-lg-5 col-md-6">
 								<div class="bulk-section mt-30">
 									<div class="search-by-name-input">
 									   
-										<input type="text" name="search" class="form-control" placeholder="Search">
+										<input type="text" name="search" class="form-control" value = "{{request('search')}}"  placeholder="Search">
 									   
 									   
 									</div>
@@ -65,7 +70,7 @@
 											<table class="table ucp-table table-hover">
 												<thead>
 													<tr>
-														<th style="width:60px"><input type="checkbox" class="check-all"></th>
+														<th style="width:60px"><input type="checkbox"  class="check-all"></th>
 														<th style="width:60px">ID</th>
 														<th style="width:130px">Image</th>
 														<th>Name</th>
@@ -75,9 +80,10 @@
 													</tr>
 												</thead>
 												<tbody>
+												 
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" class="check-item"></td>
+														<td><input type="checkbox" name="selected_ids[]" class="check-item"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">
@@ -90,9 +96,10 @@
 														<td class="action-btns">
 															<a href="{{route('category_edit',$category->id)}}" class="edit-btn"><i class="bi bi-pencil-square"></i></i> Edit</a>
 														</td>
-													</tr>
+													</tr>	
 													
 													@endforeach
+
 												</tbody>
 											</table>
 										</div>
@@ -100,9 +107,23 @@
 								</div>
 							</div>
                         </div>
+					 </form>
+
                     </div>
                 </main>
+				<footer class="py-4 bg-footer" style="margin-bottom:0;">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted-1">© 2024 <b>Gambo Supermarket</b>. by <a href="https://themeforest.net/user/gambolthemes">Gambolthemes</a></div>
+                            <div class="footer-links">
+                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/privacy_policy.html">Privacy Policy</a>
+                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/term_and_conditions.html">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
           </div>
+
        </div>
 @endsection
 
