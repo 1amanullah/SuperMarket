@@ -28,7 +28,7 @@ class CategoryFormRequest extends FormRequest
             ],
 
             'status' => [
-               'required',
+               'nullable',
                'in:1,2,3'
             ],
 

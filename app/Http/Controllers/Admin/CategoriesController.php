@@ -8,19 +8,19 @@ use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
 use App\Actions\CreateCategoryAction;
 use App\Actions\UpdateCategoryAction;
-use App\Actions\FilterCategoryAction;
+use App\Actions\BlukAction;
 
 class CategoriesController extends Controller
 {
     protected $createCategoryAction;
     protected $updateCategoryAction;
-    protected $filterCategoryAction;
+    protected $bulkAction;
 
-    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction, FilterCategoryAction $filterCategoryAction)
+    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction, BlukAction $bulkAction)
     {
         $this->createCategoryAction = $createCategoryAction; 
         $this->updateCategoryAction = $updateCategoryAction;     
-        $this->filterCategoryAction = $filterCategoryAction;
+        $this->bulkAction = $bulkAction;
 
     }
 
@@ -32,10 +32,10 @@ class CategoriesController extends Controller
         return view('admin.category.index',compact('categories'));
     }
 
-    public function bulkAction(CategoryFormRequest $request, FilterCategoryAction $filterCategoryAction)
+    public function bulkAction(CategoryFormRequest $request)
     {
 
-        $categories =   $this->filterCategoryAction->execute($request);
+        $categories =   $this->bulkAction->execute($request);
         
         return view('categories.index',compact('categories'));
 

@@ -27,8 +27,8 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/category','App\Http\Controllers\Admin\CategoriesController@index')->name('category');
     Route::get('/admin/category/create','App\Http\Controllers\Admin\CategoriesController@create')->name('category_add');
     Route::post('/admin/category','App\Http\Controllers\Admin\CategoriesController@store')->name('category_store');
+    Route::post('/admin/category','App\Http\Controller\Admin\CategoriesController@bulkAction')->name('bulkAction');
     Route::get('/admin/category/{id}/edit','App\Http\Controllers\Admin\CategoriesController@edit')->name('category_edit');
     Route::put('admin/category/{id}/update','App\Http\Controllers\Admin\CategoriesController@update')->name('category_update');
-    Route::post('admin/categories/bulk-action','App\Http\Controller\Admin\CategoriesController@bulkAcion')->name('bulkAction');
 });
 

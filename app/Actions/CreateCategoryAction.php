@@ -74,7 +74,7 @@ class UpdateCategoryAction
 }
 
 
-class BluckAction
+class BlukAction
 {
 
   public function execute(CategoryFormRequest $request)
