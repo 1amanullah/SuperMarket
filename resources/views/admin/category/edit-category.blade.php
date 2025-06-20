@@ -34,8 +34,8 @@
 												<label class="form-label">Status*</label>
 												<select id="status" name="status"  class="form-control">
 													<!-- <option selected hidden>Status</option> -->
-												    <option value="Active" {{ old('status', $categories->status) == 'Active' ? 'selected hidden' : '' }}>Active</option>
-													<option value="Inactive" {{old('status', $categories->status) == 'Inactive' ? 'selected hidden' : ''}} >Inactive</option>
+												    <option value="Active" {{  $categories->status == 'Active' ? 'selected' : '' }}>Active</option>
+													<option value="Inactive" {{ $categories->status == 'Inactive' ? 'selected' : ''}} >Inactive</option>
 												</select>
 											 </div>
 											 <div class="form-group">

@@ -51,7 +51,7 @@ class UpdateCategoryAction
        //delete old image 
        if($imageName)
        {
-         $imagePath = public_path('images/categories' . $imageName);
+         $imagePath = public_path('images/categories/' . $imageName);
          if(file_exists($imagePath))
          {
             unlink($imagePath);
@@ -71,6 +71,8 @@ class UpdateCategoryAction
 
   }  
 
+  
+
 }
 
 
@@ -85,21 +87,21 @@ class BlukAction
 
     if(!$selectedIds)
     {
-      return redirect()->with('error','No categories selected');
+      return redirect()->route('category')->with('error','No categories selected');
     }
 
     switch($action)
     {
-      case '1':
+      case 'Active':
         Category::whereIn('id',$selectedIds)->update(['status' => 'Active']);
-        return redirect()->with('success','Selected categories activated.');
+        return redirect()->route('category')->with('success','Selected categories activated.');
 
-      case '2':
+      case 'Inactive':
         Category::whereIn('id',$selectedIds)->update(['status' => 'Inactive']);
-        return redirect()->with('success','Selected categories deactivated.');
+        return redirect()->route('category')->with('success','Selected categories deactivated.');
         
       default:
-       return redirect()->with('error','Invalid action selelcted');
+       return redirect()->route('category')->with('error','Invalid action selelcted');
     }
 
   }

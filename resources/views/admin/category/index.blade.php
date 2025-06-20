@@ -10,7 +10,7 @@
                 <main>
                     <div class="container-fluid">
                         <h2 class="mt-30 page-title">Categories</h2>
-					 <form action="{{ route('bulkAction') }}">
+					 <form action="{{ route('category') }}" method="POST">
                       @csrf
                         <ol class="breadcrumb mb-30">
                             <li class="breadcrumb-item"><a href="{{route('index')}}">Dashboard</a></li>
@@ -26,9 +26,9 @@
 									<div class="input-group">
 										<select id="action" name="action" class="form-control">
 											<option selected hidden>Bulk Actions</option>
-											<option value="1">Active</option>
-											<option value="2">Inactive</option>
-											<option value="3">Delete</option>
+											<option value="Active">Active</option>
+											<option value="Inactive">Inactive</option>
+											<option value="Delete">Delete</option>
 										</select>
 										<div class="input-group-append">
 											<button class="status-btn hover-btn" type="submit">Apply</button>
@@ -82,7 +82,7 @@
 												 
 													@foreach ($categories as $category)
 													<tr>
-														<td><input type="checkbox" name="selected_ids[]" class="check-item"></td>
+														<td><input type="checkbox" name="selected_ids[]" value="{{$category->id}}" class="check-item"></td>
 														<td>{{$category->id}}</td>
 														<td>
 															<div class="cate-img">

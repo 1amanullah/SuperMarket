@@ -8,19 +8,19 @@ use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
 use App\Actions\CreateCategoryAction;
 use App\Actions\UpdateCategoryAction;
-use App\Actions\BlukAction;
+// use App\Actions\BlukAction;
 
 class CategoriesController extends Controller
 {
     protected $createCategoryAction;
     protected $updateCategoryAction;
-    protected $bulkAction;
+    // protected $bulkAction;
 
-    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction, BlukAction $bulkAction)
+    public function __construct(CreateCategoryAction $createCategoryAction, UpdateCategoryAction $updateCategoryAction)
     {
         $this->createCategoryAction = $createCategoryAction; 
         $this->updateCategoryAction = $updateCategoryAction;     
-        $this->bulkAction = $bulkAction;
+        // $this->bulkAction = $bulkAction;
 
     }
 
@@ -35,9 +35,9 @@ class CategoriesController extends Controller
     public function bulkAction(CategoryFormRequest $request)
     {
 
-        $categories =   $this->bulkAction->execute($request);
+        $this->bulkAction->execute($request);
         
-        return view('categories.index',compact('categories'));
+        return redirect()->route('category')->with('success','Bulk action applied successfully');
 
     }
 
@@ -57,6 +57,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $categories = Category::findOrFail($id);
+        
         return view('admin.category.edit-category',compact('categories'));
     }
 

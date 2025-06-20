@@ -29,7 +29,13 @@ class CategoryFormRequest extends FormRequest
 
             'status' => [
                'nullable',
-               'in:1,2,3'
+               'in:Active,Inactive'
+            ],
+
+            'action' => [
+
+                'nullable',
+                'in:Active,Inactive'
             ],
 
             'image' => [

@@ -87,9 +87,9 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
 							</a>
                             <div class="collapse" id="collapseCategories" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+                                <nav class="sb-sidenav-menu-nested nav">																																																																																																																																																																																																																																																															
 									<a class="nav-link sub_nav_link" href="{{route('category')}}">All Categories</a>
-									<a class="nav-link sub_nav_link" href="{{route('category_add')}}">Add Category</a>
+									<a class="nav-link sub_nav_link" href="{{route('category_add')}}">Add Category</a>																																																																																																																																																																								
 								</nav>
                             </div>
 							<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShops" aria-expanded="false" aria-controls="collapseShops">
