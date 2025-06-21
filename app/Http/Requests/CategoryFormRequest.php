@@ -35,7 +35,7 @@ class CategoryFormRequest extends FormRequest
             'action' => [
 
                 'nullable',
-                'in:Active,Inactive'
+                'in:Active,Inactive,Delete'
             ],
 
             'image' => [
